@@ -3,7 +3,7 @@ variable "host_os" {
 }
 
 variable "prefix" {
-  default = "ctx-prod"
+  default = "ctx-dev"
 }
 
 variable "suffix" {
@@ -24,8 +24,9 @@ variable "address_space" {
   type    = list(string)
 }
 
-variable "environment" {
-  default = "prod"
+
+variable "environment_dev" {
+  default = "dev"
 }
 
 variable "location" {
@@ -48,6 +49,6 @@ variable "vm_sku" {
 }
 
 variable "disk_size_gb" {
-    default = 60
+    default = 30
     type = number
 }

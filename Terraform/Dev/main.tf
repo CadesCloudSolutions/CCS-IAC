@@ -1,10 +1,10 @@
 # Resource Group created with tag association
 resource "azurerm_resource_group" "stw-rg" {
-  name     = "ccs-${var.prefix}-rg${var.suffix}"
+  name     = "ccs-${var.suffix}-rg"
   location = var.location
 
   tags = {
-    environment = var.environment
+    environment = var.environment_dev
   }
 }
 
@@ -16,7 +16,7 @@ resource "azurerm_virtual_network" "stw-vnet" {
   address_space       = var.address_space
 
   tags = {
-    environment = var.environment
+    environment = var.environment_dev
   }
 }
 
@@ -35,7 +35,7 @@ resource "azurerm_network_security_group" "stw-nsg" {
   resource_group_name = azurerm_resource_group.stw-rg.name
 
   tags = {
-    environment = var.environment
+    environment = var.environment_dev
   }
 }
 #NSG Security inbound (ingress) allow rule
@@ -81,7 +81,7 @@ resource "azurerm_public_ip" "stw-ip-prod" {
   allocation_method   = "Dynamic"
 
   tags = {
-    environment = var.environment
+    environment = var.environment_dev
   }
 }
 
@@ -100,7 +100,7 @@ resource "azurerm_network_interface" "stw-nic-prod" {
   }
 
   tags = {
-    environment = var.environment
+    environment = var.environment_dev
   }
 }
 
@@ -145,7 +145,7 @@ resource "azurerm_linux_virtual_machine" "stw-prod-linux-vm" {
   }
 
   tags = {
-    environment = var.environment
+    environment = var.environment_dev
   }
 
 }
@@ -170,7 +170,7 @@ resource "azurerm_storage_account" "stw-storage" {
   account_replication_type = "LRS"
 
   tags = {
-    environment = var.environment
+    environment = var.environment_dev
   }
 }
 
