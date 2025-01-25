@@ -5,12 +5,12 @@ variable "service_name" {
 
 variable "storage_account_name" {
     type = string 
-    default = "cadestfstate"
+    default = "cadestfstate20"
 }
 
 variable "resource_group_name" {
     type = string 
-    default = "cadesdefault"
+    default = "cadesdefault20"
 }
 
 variable "account_replication_type" {

@@ -4,6 +4,8 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "=2.91.0"
     }
+
+    backed
   }
 }
 
@@ -19,4 +21,9 @@ resource "azurerm_storage_account" "storage_account" {
     account_tier = var.account_tier 
     location = var.location
 
+}
+
+resource "azurerm_resource_group" "rg" {
+    name = var.resource_group_name
+    location = var.location
 }
