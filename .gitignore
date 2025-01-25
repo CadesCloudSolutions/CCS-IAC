@@ -4,4 +4,6 @@ terraform.tfstate.backup
 .terraform/*
 .terraform.lock.hcl
 .exe    // ignore all .exe files
-
+# Ignore all .exe files
+*.exe
+Dev/**/*.exe
