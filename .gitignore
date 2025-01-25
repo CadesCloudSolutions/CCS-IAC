@@ -1,0 +1,7 @@
+terraform.tfstate
+terraform.tfstate.backup
+#i want to ignore all files in the .terraform directory
+.terraform/*
+.terraform.lock.hcl
+.exe    // ignore all .exe files
+
