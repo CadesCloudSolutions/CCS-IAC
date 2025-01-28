@@ -6,6 +6,14 @@ variable "prefix" {
   default = "ctx-prod"
 }
 
+variable "suffix" {
+  default = "ctx-dev"
+}
+
+variable "storage" {
+  default = "01"
+}
+
 variable "cidr_block" {
   default = ["10.0.1.0/24"]
   type    = list(string)
@@ -21,7 +29,7 @@ variable "environment" {
 }
 
 variable "location" {
-  default = "north europe"
+  default = "uksouth"
   type    = string
 }
 

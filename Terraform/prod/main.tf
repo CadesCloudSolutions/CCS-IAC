@@ -1,6 +1,6 @@
 # Resource Group created with tag association
 resource "azurerm_resource_group" "stw-rg" {
-  name     = "ccs-${var.prefix}-rg"
+  name     = "ccs-${var.prefix}-rg${var.suffix}"
   location = var.location
 
   tags = {
@@ -160,3 +160,17 @@ data "azurerm_public_ip" "stw-ip-data" {
 output "public_ip_address" {
   value = "${azurerm_linux_virtual_machine.stw-prod-linux-vm.name}: ${data.azurerm_public_ip.stw-ip-data.ip_address}"
 }
+
+#generate me a storage account for this main.tf file location should be same as my resource group
+resource "azurerm_storage_account" "stw-storage" {
+  name                     = "ccs${lower(var.storage)}storage"
+  resource_group_name      = azurerm_resource_group.stw-rg.name
+  location                 = azurerm_resource_group.stw-rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+
+  tags = {
+    environment = var.environment
+  }
+}
+
