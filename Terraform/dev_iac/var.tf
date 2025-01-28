@@ -1,6 +1,6 @@
 variable "service_name" {
   type    = string
-  default = ""
+  default = "ccs"
 }
 
 variable "storage_account_name" {
